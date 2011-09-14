@@ -51,7 +51,7 @@ $HOME/.config/awesome directory), you need to perform the following steps:
 Screenshot (because one picture is worth thousand words and I don't intend to write as much)
 --------------------------------------------------------------------------------------------
 
-![An awesome looking screenshot](screenshot.png)
+![For an awesome looking screenshot, have a look at the screenshot.png file in the repo](screenshot.png)
 
 TODO
 ----
