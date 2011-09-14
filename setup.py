@@ -7,7 +7,7 @@ setup(
     author = "Tony Cheneau",
     author_email = "tony.cheneau@amnesiak.org",
     description = "A program for the Awesome window manager to indicate the unread email status\
-            inside a widget. Works on IMAP(S) servers.",
+            inside a widget. Works on IMAPS servers.",
     licence = "BSD",
     keywords = "awesome imap unread-email status-indication",
     
@@ -15,7 +15,7 @@ setup(
 
     data_files = [ ('share/doc/awesome-checkmail',
                     glob('*.txt') ) ,
-                    ('share/doc/example',
+                    ('share/doc/awesome-checkmail/example',
                     glob('example/*.*') ) ],
 
 )

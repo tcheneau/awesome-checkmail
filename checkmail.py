@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/bin/env python3
 # -*- coding : utf8 -*-
 import socket, ssl, getpass, imaplib, time, os, argparse, sys
 from subprocess import *
@@ -160,8 +160,14 @@ if __name__ == "__main__":
         print("reading configuration file {}".format(configfile))
         config.read(configfile)
     else:
-        # no default configuration file is present, create a new one
-        print("installing new configuration file in {}".format(DEFAULT_CFG))
+        # no default configuration file is present, user needs to create a new one
+        print("no configure file is present, please copy a sample configuration from \
+               /usr/share/doc/awesome-checkmail/example/ to {}".format(DEFAULT_CFG))
+
+        # TODO:
+        # create the directory if needed (os.mkdir)
+        # copy the file
+
         sys.exit(-1)
 
 
