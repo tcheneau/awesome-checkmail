@@ -57,10 +57,10 @@ TODO
 ----
 
 As I am currently the only user of checkmail.py, I do not intend to write any
-of this extension, unless some ask for it:
+of this extension, unless someone asks for it:
 
 * graphical password typing (currently using the getpass module)
-* connect to IMAP serveurs (that is withouh SSL support)
+* connect to IMAP servers (that is withouh SSL support)
 * improve the setup part so that only small interactions are required by the
   user (that is YOU!)
 
