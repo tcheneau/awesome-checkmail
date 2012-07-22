@@ -51,6 +51,14 @@ $HOME/.config/awesome directory), you need to perform the following steps:
 	mymailbox,
 ````
 
+If you have multiple screens and only want the be distracted from one screen,
+you may want to replace the previous line with this one:
+
+````
+        s == 1 and mymailbox or nil,
+````
+
+
 Screenshot (because one picture is worth thousand words and I don't intend to write as much)
 --------------------------------------------------------------------------------------------
 
