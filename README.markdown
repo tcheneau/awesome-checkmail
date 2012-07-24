@@ -39,14 +39,25 @@ $HOME/.config/awesome directory), you need to perform the following steps:
   file must be modified accordingly) by adding the following lines in your
   rc.lua
 
-	-- used as a notification system for the checkmail.py script
+````-- used as a notification system for the checkmail.py script
 	mymailbox = widget({ type = "textbox", name = "mymailbox", align = "left" })
 	mymailbox.text = ""
+````
 
 * register the widget by adding the following line after the
   `mywibox[s].widgets = {}` line (in order to register the widget):
 
+````
 	mymailbox,
+````
+
+If you have multiple screens and only want the be distracted from one screen,
+you may want to replace the previous line with this one:
+
+````
+        s == 1 and mymailbox or nil,
+````
+
 
 Screenshot (because one picture is worth thousand words and I don't intend to write as much)
 --------------------------------------------------------------------------------------------
