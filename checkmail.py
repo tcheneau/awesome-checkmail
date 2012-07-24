@@ -14,6 +14,7 @@ debug = False
 DEFAULT_CFG = "~/.config/awesome/mail.cfg"
 
 def print_debug(string):
+    global debug
     if debug:
         print(string)
 
@@ -65,7 +66,7 @@ class MailServer:
         def connect(self):
             """function to connecting to the mail server"""
             try:
-                    print("login on: ", self._name) 
+                    print_debug("login on: %s" % self._name) 
                     self._connexion = imaplib.IMAP4_SSL(self._server_name, self._port)
             except (imaplib.IMAP4.abort, socket.gaierror, socket.error) as err:
                     print("unable to connect to ", self._name, "(", self._port, "):", err)
@@ -83,7 +84,7 @@ class MailServer:
             except (imaplib.IMAP4.error, AttributeError) as err:
                 print("unable to login on: ", self._name, ":", err)
             else: 
-                print("Successfully logued in ", self._name, " as " , self._login)
+                print_debug("Successfully logued in %s as %s" % (self._name, self._login))
 
         def list_mailbox(self):
             if self._connexion==None or self._status=="not logued":
@@ -97,7 +98,7 @@ class MailServer:
                         for mailbox in self._directories:
                             (status,message) = self._connexion.select(mailbox,readonly=1)
                             if status=="NO":
-                                print("the mailbox ", mailbox, " doesn't exist on", self._server_name)
+                                print("the mailbox %s doesn't exist on %s" % (mailbox, self._server_name))
                                 continue
                             (status,message)= self._connexion.search(None,'UNSEEN')
                             if message!=[b'']:
@@ -157,7 +158,7 @@ if __name__ == "__main__":
     # try to load the default path
     configfile = os.path.expanduser(args.path)
     if os.path.isfile(configfile):
-        print("reading configuration file {}".format(configfile))
+        print_debug("reading configuration file {}".format(configfile))
         config.read(configfile)
     else:
         # no default configuration file is present, user needs to create a new one
@@ -173,7 +174,7 @@ if __name__ == "__main__":
 
 
 
-    debug = config.get("global","debug")
+    debug = config.getboolean("global","debug")
     widget = config.get("global","widget_name")
     checkdelay = config.getint("global", "check_delay")
 
